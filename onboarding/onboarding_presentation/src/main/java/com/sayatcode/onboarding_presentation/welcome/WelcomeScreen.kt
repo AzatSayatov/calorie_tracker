@@ -15,11 +15,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.sayatcode.core.R
+import com.sayatcode.core.navigation.Route
+import com.sayatcode.core.util.UiEvent
 import com.sayatcode.core_ui.LocalSpacing
 import com.sayatcode.onboarding_presentation.components.ActionButton
 
 @Composable
-fun WelcomeScreen(){
+fun WelcomeScreen(
+    onNavigate:(String) -> Unit
+){
     val spacing = LocalSpacing.current
     Column(
         modifier = Modifier
@@ -36,7 +40,7 @@ fun WelcomeScreen(){
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
         ActionButton(
             text = stringResource(id = R.string.next),
-            onClick = { /*TODO*/ },
+            onClick = { onNavigate(Route.AGE) },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
