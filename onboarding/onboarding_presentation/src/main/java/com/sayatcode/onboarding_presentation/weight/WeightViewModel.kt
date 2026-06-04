@@ -34,14 +34,14 @@ class WeightViewModel @Inject constructor(
 
     fun onNextClick(){
         viewModelScope.launch {
-            val wieghtNumber = weight.toIntOrNull() ?: run {
+            val weightNumber = weight.toFloatOrNull() ?: run {
                 _uiEvent.send(
                     UiEvent.ShowSnackbar(
                         UiText.StringResource(R.string.error_weight_cant_be_empty))
                 )
                 return@launch
             }
-            preferences.saveAge(wieghtNumber)
+            preferences.saveWeight(weightNumber)
             _uiEvent.send(
                 UiEvent.Navigate(Route.ACTIVITY)
             )
