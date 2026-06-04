@@ -22,6 +22,7 @@ import com.sayatcode.onboarding_presentation.age.AgeScreen
 import com.sayatcode.onboarding_presentation.gender.GenderScreen
 import com.sayatcode.onboarding_presentation.goal.GoalTypeScreen
 import com.sayatcode.onboarding_presentation.height.HeightScreen
+import com.sayatcode.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.sayatcode.onboarding_presentation.weight.WeightScreen
 import com.sayatcode.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -69,7 +70,10 @@ class MainActivity : ComponentActivity() {
                             GenderScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.NUTRIENT_GOAL) {
-
+                            NutrientGoalScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.GOAL) {
                             GoalTypeScreen(onNavigate = navController::navigate)
