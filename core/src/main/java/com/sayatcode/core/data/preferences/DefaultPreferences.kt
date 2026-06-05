@@ -1,12 +1,12 @@
-package com.sayatcode.core.domain
+package com.sayatcode.core.data.preferences
 
 import android.content.SharedPreferences
+import androidx.core.content.edit
 import com.sayatcode.core.domain.model.ActivityLevel
 import com.sayatcode.core.domain.model.Gender
 import com.sayatcode.core.domain.model.GoalType
 import com.sayatcode.core.domain.model.UserInfo
 import com.sayatcode.core.domain.preferences.Preferences
-import androidx.core.content.edit
 
 class DefaultPreferences(
     private val sharedPreferences: SharedPreferences
@@ -15,6 +15,18 @@ class DefaultPreferences(
         sharedPreferences.edit {
             putString(Preferences.KEY_GENDER, gender.name)
         }
+    }
+
+    override fun saveShouldShowOnboarding(show: Boolean) {
+        sharedPreferences.edit{
+            putBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING,show)
+        }
+    }
+
+    override fun loadShouldShowOnBoarding(): Boolean {
+       return sharedPreferences.getBoolean(
+            Preferences.KEY_SHOULD_SHOW_ONBOARDING,true
+        )
     }
 
     override fun saveAge(age: Int) {

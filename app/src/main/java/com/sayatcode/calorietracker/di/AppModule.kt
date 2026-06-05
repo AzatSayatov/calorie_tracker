@@ -3,7 +3,7 @@ package com.sayatcode.calorietracker.di
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import com.sayatcode.core.domain.DefaultPreferences
+import com.sayatcode.core.data.preferences.DefaultPreferences
 import com.sayatcode.core.domain.preferences.Preferences
 import com.sayatcode.core.domain.use_case.FilterOutDigits
 import dagger.Module
