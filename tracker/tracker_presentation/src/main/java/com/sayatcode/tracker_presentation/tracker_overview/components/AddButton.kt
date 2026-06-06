@@ -47,7 +47,8 @@ fun AddButton(
         horizontalArrangement = Arrangement.Center
     ) {
         Icon(imageVector = Icons.Default.Add,
-            contentDescription = stringResource(R.string.add_meal)
+            contentDescription = stringResource(R.string.add_meal),
+            tint = color
         )
         Spacer(Modifier.width(spacing.spaceMedium))
         Text(

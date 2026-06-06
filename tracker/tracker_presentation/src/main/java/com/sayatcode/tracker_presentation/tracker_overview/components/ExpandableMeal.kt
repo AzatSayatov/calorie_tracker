@@ -1,5 +1,6 @@
 package com.sayatcode.tracker_presentation.tracker_overview.components
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -107,6 +108,10 @@ fun ExpandableMeal(
                     }
                 }
             }
+        }
+        Spacer(Modifier.height(spacing.spaceMedium))
+        AnimatedVisibility(meal.isExpanded) {
+            content()
         }
     }
 }
