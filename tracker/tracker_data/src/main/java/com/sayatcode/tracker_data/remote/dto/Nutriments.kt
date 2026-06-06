@@ -1,9 +1,11 @@
 package com.sayatcode.tracker_data.remote.dto
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class Nutriments(
-    @field:Json(name = "carbohydrates_100g")
+    @field:Json(name = "carbohydrates-total_100g")
     val carbohydrates100g: Double,
     @field:Json(name = "energy-kcal_100g")
     val energyKcal100g: Double,

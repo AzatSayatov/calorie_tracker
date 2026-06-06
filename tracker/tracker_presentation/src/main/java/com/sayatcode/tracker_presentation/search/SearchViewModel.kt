@@ -1,5 +1,6 @@
 package com.sayatcode.tracker_presentation.search
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -74,6 +75,7 @@ class SearchViewModel @Inject constructor(
             trackerUseCases
                 .searchFood(state.query)
                 .onSuccess { foods ->
+                    Log.d("Search", "Found ${foods.size} foods")
                     state = state.copy(
                         trackableFood = foods.map {
                             TrackableFoodUiState(it)
@@ -83,6 +85,7 @@ class SearchViewModel @Inject constructor(
                     )
                 }
                 .onFailure {
+                    Log.e("Search", "Error: ${it.message}")
                     state = state.copy(isSearching = false)
                     _uiEvent.send(
                         UiEvent.ShowSnackbar(
