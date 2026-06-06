@@ -1,6 +1,10 @@
 package com.sayatcode.tracker_presentation.tracker_overview
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
@@ -9,8 +13,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.sayatcode.core.util.UiEvent
 import com.sayatcode.core_ui.LocalSpacing
+import com.sayatcode.tracker_presentation.tracker_overview.components.DaySelector
 import com.sayatcode.tracker_presentation.tracker_overview.components.NutrientsHeader
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun TrackerOverviewScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
@@ -26,6 +32,18 @@ fun TrackerOverviewScreen(
     ) {
         item {
             NutrientsHeader(state = state)
+            Spacer(Modifier.height(spacing.spaceMedium))
+            DaySelector(
+                date = state.date,
+                onPreviousDayClick = {
+                    viewModel.onEvent(TrackerOverviewEvent.OnPreviousDayClick)
+                },
+                onNexDayClick = {
+                    viewModel.onEvent(TrackerOverviewEvent.OnNextDayClick)
+                },
+                modifier = Modifier
+                    .padding(horizontal = spacing.spaceMedium)
+            )
         }
     }
 }

@@ -18,4 +18,8 @@ object Compose {
 
     private const val lifecycleVersion = "2.10.0"
     const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion"
+
+    // в объекте Compose
+    private const val materialIcons = "1.7.8"
+    const val materialIconsExtended = "androidx.compose.material:material-icons-extended:${materialIcons}"
 }
