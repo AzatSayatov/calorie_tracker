@@ -1,4 +1,4 @@
-package com.sayatcode.calorietracker.ui.theme
+package com.sayatcode.core_ui
 
 import androidx.compose.ui.graphics.Color
 
